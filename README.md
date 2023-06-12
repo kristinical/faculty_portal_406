@@ -1,11 +1,15 @@
 # Education Expeditions Faculty Portal
 
-Author: Kristin Eberman 
-Oregon State University
-CS406: Independent Project | Spring 2023
+Author: Kristin Eberman<br>
+Oregon State University – Spring 2023<br>
+CS406: Independent Project
 
-CODE CITATION:
-This code is based on OSU's CS340 Flask-Starter-App
+* Website: http://flip3.engr.oregonstate.edu:9875
+* Note: To access this website, you must be connected to Oregon State University's VPN
+* View [Login credentials](#login-credentials-for-the-purposes-of-this-project-the-following-are-valid-login-credentials) to access the site
+
+**CODE CITATION:**<br>
+Project code is guided by OSU's CS340 Flask-Starter-App<br>
 URL: https://github.com/osu-cs340-ecampus/flask-starter-app
 
 ## About the Project
@@ -40,19 +44,19 @@ This project included the development of the following web pages:
 This project involved the following phases:
 1. Project description and overview
 2. Supporting application documentation – Flowcharts, IPO/TOE Charts, Pseudocode
-3. [UX/UI prototype] (https://www.figma.com/proto/JUGF5unh3i3ZqL2CwBl9AJ/CS406-Prototype?type=design&node-id=1-4&scaling=scale-down&page-id=0%3A1&starting-point-node-id=1%3A4)
+3. [UX/UI prototype](https://www.figma.com/proto/JUGF5unh3i3ZqL2CwBl9AJ/CS406-Prototype?type=design&node-id=1-4&scaling=scale-down&page-id=0%3A1&starting-point-node-id=1%3A4)
 4. Beta application / local program (Frontend)
 5. Testing and debugging with sample data (Backend integration with MySQL database)
 
-## Login Credentials
-For the purposes of this project, the following are valid login credentials:
+## Login Credentials: For the purposes of this project, the following are valid login credentials:
 * Administrator:
-    - Username: admin
-    - Password: adminpw
+    - Username: **admin**
+    - Password: **adminpw**
 * Faculty:
     - Valid countries are England, Ghana, Japan and Peru
     - Replace '[country]' with the country name in lowercase letters
-        - Username: [country]_faculty (example: japan_faculty)
-        - Password: [country] (example: japan)
-Use both sets of credentials to access the two sections of the website.
+        - Username: [country]_faculty (example: **japan_faculty**)
+        - Password: [country] (example: **japan**)
+
+Use both sets of credentials to access the two sections of the website.<br>
 You can also enter invalid credentials to receive a login error.
