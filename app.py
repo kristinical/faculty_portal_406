@@ -21,6 +21,14 @@ app.config.from_pyfile("config.py")
 app.config['SESSION_PERMANENT'] = True
 
 
+# configure connection to database (real details or hidden)
+app.config['MYSQL_HOST'] = '[host_name]'
+app.config['MYSQL_USER'] = '[username]'
+app.config['MYSQL_PASSWORD'] = '[password]'
+app.config['MYSQL_DB'] = '[database_name]'
+app.config['MYSQL_CURSORCLASS'] = "DictCursor"
+
+
 # Route for Login page to Portal
 @app.route('/')
 def root():
