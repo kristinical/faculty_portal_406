@@ -1,0 +1,28 @@
+<!-- Placeholder page that allows Faculty user to upload a document to complete a task -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Education Expeditions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/style.css') }}"> 
+</head>
+<header>
+    {% include 'header.html' %}
+</header>
+<body>
+<div id="container">
+    <div id="content">
+    <h1>Document Upload</h1>
+    <form action="/submit", method="POST">
+        <input id="upload" type="file" value="Choose file"><br>
+        <button type="submit" name="taskID" id="taskID" class="admin_button" value={{task}}>Submit</button>
+    </form>
+    <form action="/faculty">
+        <input type="submit" class="logout" value="Cancel">
+    </form>
+    </div>
+    {% include 'footer.html' %}
+</div>
+</body>
+</html>

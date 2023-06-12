@@ -1,0 +1,52 @@
+<!-- Form page to ADD new task to a selected program from the Admin Portal -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Education Expeditions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/style.css') }}"> 
+</head>
+<header>
+    {% include 'header.html' %}
+</header>
+
+<body>
+<div id="container">
+    <div id="content">
+    <h1>Admin Portal</h1>
+    {% include 'program_table.html' %}
+    <form action="/add_task" method="POST">
+        <table id="add_table">
+            <tr>
+                <th>Task Name:</th>
+                <td><input name="taskName" type="text" autofocus required></td>
+            </tr>
+            <tr>
+                <th>Task Type:</th>
+                <td>
+                    <select name="taskType" id="taskType" required>
+                        <option value="" disabled selected>-- Select type --</option>
+                        <option value="Upload">Document or File Upload</option>
+                        <option value="Submit">Form Submission</option>
+                        <option value="Pay">Payment</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Due Date:</th>
+                <td>
+                    <input name="dueDate" type="date" required>
+                </td>
+            </tr>
+        </table>
+        <input type="submit" class="admin_button" value="Add Task">
+    </form>
+    <form action="/program">
+        <input type="submit" class="logout" value="Cancel">
+    </form>
+    </div>
+    {% include 'footer.html' %}
+</div>
+</body>
+</html>

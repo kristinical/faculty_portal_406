@@ -1,0 +1,31 @@
+<!-- Login page that displays upon failed login attempt -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Education Expeditions</title>
+    <link rel="stylesheet" href="static/style/style.css"> 
+</head>
+<header>
+    {% include 'header.html' %}
+</header>
+
+<body>
+<div id="container">
+    <div id="content">
+    <h1>Portal Login</h1>
+    <form action="/portal", method="POST">
+        <input type="text" class="input" name="username" id="username" placeholder="Username" required><br>
+        <input type="password" class="input" name="password" id="password" placeholder="Password" required><br>
+        <p class="error">Error: Invalid username or password</p>
+        <div class="tooltip">
+            <input type="submit" class="button" value="Log in">
+            {% include 'credentials.html' %}
+        </div>
+    </form>
+    </div>
+    {% include 'footer.html' %}
+</div>
+</body>
+</html>

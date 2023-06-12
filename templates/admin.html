@@ -1,0 +1,36 @@
+<!-- Admin Portal homepage that prompts user to select a program to view or edit -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Education Expeditions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/style.css') }}"> 
+</head>
+<header>
+    {% include 'header.html' %}
+</header>
+
+<body>
+<div id="container">
+    <div id="content">
+    <h1>Admin Portal</h1>
+    <form action='/program' method='POST'>
+        <label for="programs">SELECT A PROGRAM TO VIEW OR EDIT:</label><br><br>
+        <select name="programs" id="programs">
+            <option value="" disabled selected>-- Select program --</option>
+            {% for program in programs %}
+                <option value="{{program['programID']}}">{{program['destination'].upper()}}: {{program['programName']}}</option>
+            {% endfor %}
+        </select><br><br>
+        <input type="submit" class="button" value="Submit" />
+    </form>
+    <br>
+    <form action="/logout", method="POST">
+        <input type="submit" class="logout" onclick="return confirm('Are you sure you want to log out?')" value="Log out">
+    </form>
+    </div>
+    {% include 'footer.html' %}
+</div>
+</body>
+</html>

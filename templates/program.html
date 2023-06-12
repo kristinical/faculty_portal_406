@@ -1,0 +1,29 @@
+<!-- Admin Portal program page that displays program info and task list -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Education Expeditions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/style.css') }}"> 
+</head>
+<header>
+    {% include 'header.html' %}
+</header>
+<body>
+<div id="container">
+    <div id="content">
+    <h1>Admin Portal</h1>
+    {% include 'program_table.html' %}
+    {% include 'admin_task_table.html' %}
+    <form action="/admin">
+        <input type="submit" class="admin_button" value="Select Another Program">
+    </form>
+    <form action="/logout", method="POST">
+        <input type="submit" class="logout" onclick="return confirm('Are you sure you want to log out?')" value="Log out">
+    </form>
+    </div>
+    {% include 'footer.html' %}
+</div>
+</body>
+</html>

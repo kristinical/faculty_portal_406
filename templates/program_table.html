@@ -1,0 +1,30 @@
+<!-- Table that diplays Program information for a selected program -->
+<table id="prog_table">
+    <thead>
+        <tr>
+            <td class="thead" colspan="2">PROGRAM DETAILS</td>
+        </tr>
+    </thead>
+    <tbody id="program_table">
+        <tr>
+            <th>Faculty Leader(s):</th>
+            <td>{{ program["faculty"] }}</td>
+        </tr>
+        <tr>
+            <th>University:</th>
+            <td>{{ program["university"] }}</td>
+        </tr>
+        <tr>
+            <th>Subject:</th>
+            <td>{{ program["programName"] }}</td>
+        </tr>
+        <tr>
+            <th>Destination:</th>
+            <td>{{ program["destination"] }}</td>
+        </tr>
+        <tr>
+            <th>Dates:</th>
+            <td>{{ program["startDate"] }} – {{ program["endDate"] }}</td>
+        </tr>
+    </tbody>
+</table>

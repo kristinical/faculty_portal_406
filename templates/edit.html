@@ -1,0 +1,78 @@
+<!-- Form page to EDIT a task for a selected program from the Admin Portal -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Education Expeditions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/style.css') }}"> 
+</head>
+<header>
+    {% include 'header.html' %}
+</header>
+
+<body>
+<div id="container">
+    <div id="content">
+    <h1>Admin Portal</h1>
+    {% include 'program_table.html' %}
+    <form action="/edit_task" method="POST">
+        <table id="add_table">
+            <tr>
+                <th>Task Name:</th>
+                <td><input name="taskName" type="text" value="{{task['taskName']}}" autofocus required></td>
+            </tr>
+            <tr>
+                <th>Task Type:</th>
+                <td>
+                    <select name="taskType" id="taskType" required>
+                        <option value="" disabled>-- Select type --</option>
+                        {% if taskType == "Upload" %}
+                            <option value="Upload" selected>Document or File Upload</option>
+                            <option value="Submit">Form Submission</option>
+                            <option value="Pay">Payment</option>
+                        {% elif taskType == "Submit" %}
+                            <option value="Upload">Document or File Upload</option>
+                            <option value="Submit" selected>Form Submission</option>
+                            <option value="Pay">Payment</option>
+                        {% elif taskType == "Pay" %}
+                            <option value="Upload">Document or File Upload</option>
+                            <option value="Submit">Form Submission</option>
+                            <option value="Pay" selected>Payment</option>
+                        {% endif %}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Due Date:</th>
+                <td>
+                    <input name="dueDate" type="date" value="{{task['dueDate']}}" required>
+                </td>
+            </tr>
+            {% if task['completed'] == 1 %}
+            <tr>
+                <td colspan="2"><div style="display: inline-flex;">Mark task as completed
+                <input style="width: 20px; height: 20px; margin: 0 10px;" type="radio" value="Yes" name="completed" checked>
+                Yes
+                <input style="width: 20px; height: 20px; margin: 0 10px;" type="radio" value="No" name="completed">No</div></th>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="2"><div style="display: inline-flex;">Mark task as completed
+                <input style="width: 20px; height: 20px; margin: 0 10px;" type="radio" value="Yes" name="completed">
+                Yes
+                <input style="width: 20px; height: 20px; margin: 0 10px;" type="radio" value="No" name="completed" checked>No</div></th>
+            </tr>
+            {% endif %}
+        </table>
+        <input name="taskID" value={{taskID}} hidden>
+        <input type="submit" class="admin_button" value="Edit Task">
+    </form>
+    <form action="/program">
+        <input type="submit" class="logout" value="Cancel">
+    </form>
+    </div>
+    {% include 'footer.html' %}
+</div>
+</body>
+</html>

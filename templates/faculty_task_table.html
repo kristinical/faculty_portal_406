@@ -1,0 +1,29 @@
+<!-- Table that diplays all Tasks for a selected program on the Faculty Portal -->
+<table>
+    <thead>
+        <tr>
+            <td class="thead" colspan="3">TASK LIST</td>
+        </tr>
+        <tr>
+            <th>TASK</th>
+            <th>ACTION</th>
+            <th>DUE</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for task in tasks %}
+        <tr>
+            <td>{{ task['taskName'] }}</td>
+            {% if task['completed'] == 1 %}
+                <td><button><a href="/view" target="_blank">View</a></button></td>
+                <td>Completed</td>
+            {% else %}
+                <td><form action="/upload" method="POST">
+                    <button type="submit" name="taskID" id="taskID" value="{{task['taskID']}}">{{ task['taskType'] }}</button>
+                </form></td>
+                <td>{{ task['dueDate'] }}</td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
