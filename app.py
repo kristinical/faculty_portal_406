@@ -10,22 +10,23 @@
 
 from flask import Flask, render_template, request, redirect, json, session, send_from_directory
 from flask_mysqldb import MySQL
+from flask_session import Session
 import os, operator
 import database.db_connector as db
 db_connection = db.connect_to_database()
 
 
-# Configure Flask app
+# Configure Flask app and set secret key
 app = Flask(__name__)
-app.config.from_pyfile("config.py")
-app.config['SESSION_PERMANENT'] = True
+app.config['SESSION_PERMANENT'] = False
+app.config['SECRET_KEY'] = 'not the real key'
 
 
-# configure connection to database (real details or hidden)
-app.config['MYSQL_HOST'] = '[host_name]'
-app.config['MYSQL_USER'] = '[username]'
-app.config['MYSQL_PASSWORD'] = '[password]'
-app.config['MYSQL_DB'] = '[database_name]'
+# configure connection to database (actual names and password are removed)
+app.config['MYSQL_HOST'] = 'db_host_name'
+app.config['MYSQL_USER'] = 'username'
+app.config['MYSQL_PASSWORD'] = 'password'
+app.config['MYSQL_DB'] = 'database_name'
 app.config['MYSQL_CURSORCLASS'] = "DictCursor"
 
 
@@ -38,8 +39,7 @@ def root():
 # Route for Logout (reset session variables)
 @app.route('/logout', methods=['POST'])
 def logout():
-    session['faculty'] = -1
-    session['admin'] = False
+    session.clear()
     return redirect("/")
 
 
@@ -315,4 +315,4 @@ def get_tasks(programID):
 # Listener
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 9875))
-    app.run(port=port, debug=True) 
+    app.run(port=port, debug=False) 
