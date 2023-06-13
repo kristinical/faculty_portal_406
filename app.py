@@ -10,17 +10,15 @@
 
 from flask import Flask, render_template, request, redirect, json, session, send_from_directory
 from flask_mysqldb import MySQL
-from flask_session import Session
 import os, operator
 import database.db_connector as db
 db_connection = db.connect_to_database()
 
 
-# Configure Flask app and set secret key
 app = Flask(__name__)
-app.config['SESSION_PERMANENT'] = False
-app.config['SECRET_KEY'] = 'not the real key'
 
+# set a secret key (to use for sessions)
+app.secret_key = 'not the real key'
 
 # configure connection to database (actual names and password are removed)
 app.config['MYSQL_HOST'] = 'db_host_name'
@@ -39,7 +37,8 @@ def root():
 # Route for Logout (reset session variables)
 @app.route('/logout', methods=['POST'])
 def logout():
-    session.clear()
+    session['faculty'] = -1
+    session['admin'] = False
     return redirect("/")
 
 
